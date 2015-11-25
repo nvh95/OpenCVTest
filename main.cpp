@@ -1,11 +1,17 @@
+#include <opencv2/core/core.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/highgui/highgui.hpp>
+
+#include <opencv2/ml.hpp>
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui.hpp>
+
 #include <iostream>
 #include <math.h>
 #include <string>
-#include "cv.h"
-#include "ml.h"
-#include "highgui.h"
 
 using namespace cv;
+using namespace cv::ml;
 using namespace std;
 
 bool plotSupportVectors = true;
@@ -81,7 +87,7 @@ cv::Mat labelData(cv::Mat points, int equation) {
 }
 
 void svm(cv::Mat& trainingData, cv::Mat& trainingClasses, cv::Mat& testData, cv::Mat& testClasses) {
-    CvSVMParams param = CvSVMParams();
+    OpenCvTest param = CvSVMParams();
 
     param.svm_type = CvSVM::C_SVC;
     param.kernel_type = CvSVM::RBF; //CvSVM::RBF, CvSVM::LINEAR ...
